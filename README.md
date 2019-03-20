@@ -1,9 +1,14 @@
 # FE-Basics
 
-> Front-end basic knowledge.
+> 前端基础知识。
 
-English | [中文介绍](README.zh.md)
 
 ## HTML
 
-- [Base tag](/html/base-tag.html)
+- [基础标签](/html/base-tag.html)
+
+## CSS
+
+## Javascript
+
+- [继承实现](/js/extend.js)
