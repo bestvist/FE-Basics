@@ -12,3 +12,4 @@
 ## Javascript
 
 - [继承实现](/js/extend.js)
+- [深拷贝](/js/deep-copy.js)
