@@ -2,7 +2,7 @@
 
 > Front-end basic knowledge.
 
-English|[中文介绍](README.zh.md)
+English | [中文介绍](README.zh.md)
 
 ## HTML
 
