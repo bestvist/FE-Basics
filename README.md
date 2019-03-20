@@ -3,6 +3,10 @@
 > 前端基础知识。
 
 
+## 技能树
+
+* [技能树](https://www.xmind.net/embed/JzUN/)
+
 ## HTML
 
 - [基础标签](/html/base-tag.html)
