@@ -13,6 +13,8 @@ ajax.get = function (url, fn) {
 
         }
     }
+
+    xhr.send();
 }
 
 ajax.post = function (url, data, fn) {
@@ -28,4 +30,6 @@ ajax.post = function (url, data, fn) {
             fn.call(this, xhr.responseText);
         }
     }
+
+    xhr.send(data);
 }
