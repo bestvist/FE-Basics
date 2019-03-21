@@ -16,6 +16,7 @@
     -   [继承实现](#继承实现)
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
+    -   [格式化日期](#格式化日期)
 
 ## HTML
 
@@ -171,4 +172,45 @@ ajax.post = function(url, data, fn) {
 
     xhr.send(data);
 };
+```
+
+### 格式化日期
+
+```js
+function formatDate(date, format) {
+    if (arguments.length === 0) return null;
+
+    format = format || "{y}-{m}-{d} {h}:{i}:{s}";
+
+    if (typeof date !== "object") {
+        if ((date + "").length === 10) date = parseInt(date) * 1000;
+        date = new Date(date);
+    }
+
+    const dateObj = {
+        y: date.getFullYear(),
+        m: date.getMonth() + 1,
+        d: date.getDate(),
+        h: date.getHours(),
+        i: date.getMinutes(),
+        s: date.getSeconds(),
+        a: date.getDay()
+    };
+
+    const dayArr = ["一", "二", "三", "四", "五", "六", "日"];
+
+    const str = format.replace(/{(y|m|d|h|i|s|a)+}/g, (match, key) => {
+        let value = dateObj[key];
+
+        if (key === "a") return dayArr[value - 1];
+
+        if (value < 10) {
+            value = "0" + value;
+        }
+
+        return value || 0;
+    });
+
+    return str;
+}
 ```
