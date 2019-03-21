@@ -19,10 +19,9 @@
 
 ## HTML
 
-<details>
-<summary>基础标签</summary>
+### 基础标签
 
-```
+```html
 <head></head>
 
 <meta>
@@ -64,14 +63,11 @@
 <i></i>
 ```
 
-</details>
-
 ## CSS
 
-<details>
-<summary>选择器</summary>
+### 选择器
 
-```
+```css
 
 /_ 选择所有元素 _/
 
@@ -90,18 +86,15 @@ div {}
 div p {}
 
 /_ 选择 div 元素内下一层级的 p 元素 _/
-div>p {}
+div > p {}
 
 ```
-
-</details>
 
 ## Javascript
 
-<details>
-<summary>继承实现</summary>
+### 继承实现
 
-```
+```js
 
 function extend(child, parent){
 var F = function (){}; // 空函数为中介，减少实例时占用的内存
@@ -118,12 +111,9 @@ var F = function (){}; // 空函数为中介，减少实例时占用的内存
 
 ```
 
-</details>
+### 深拷贝
 
-<details>
-<summary>深拷贝</summary>
-
-```
+```js
 
 function deepCopy(s, t) {
 t = t || (Object.prototype.toString.call(t) === '[object Array]' ? [] : {});
@@ -144,12 +134,9 @@ t = t || (Object.prototype.toString.call(t) === '[object Array]' ? [] : {});
 
 ```
 
-</details>
+### Ajax
 
-<details>
-<summary>Ajax</summary>
-
-```
+```js
 
 var ajax = {};
 
@@ -190,6 +177,3 @@ var xhr = new XMLHttpRequest();
 }
 
 ```
-
-</details>
-
