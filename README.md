@@ -24,9 +24,9 @@
 ```html
 <head></head>
 
-<meta>
+<meta />
 
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="" />
 
 <title></title>
 
@@ -48,11 +48,13 @@
 
 <p></p>
 
-<h1></h1>~<h6></h6>
+<h1></h1>
+~
+<h6></h6>
 
 <button></button>
 
-<input type="text">
+<input type="text" />
 
 <a href=""></a>
 
@@ -68,26 +70,29 @@
 ### 选择器
 
 ```css
+/* 选择所有元素 */
+* {
+}
 
-/_ 选择所有元素 _/
+/* 选择 div 元素 */
+div {
+}
 
--   {}
+/* 选择类名元素 */
+.class {
+}
 
-/_ 选择 div 元素 _/
-div {}
+/* 选择 id 元素 */
+#id {
+}
 
-/_ 选择类名元素 _/
-.class {}
+/* 选择 div 元素内的所有 p 元素 */
+div p {
+}
 
-/_ 选择 id 元素 _/
-#id {}
-
-/_ 选择 div 元素内的所有 p 元素 _/
-div p {}
-
-/_ 选择 div 元素内下一层级的 p 元素 _/
-div > p {}
-
+/* 选择 div 元素内下一层级的 p 元素 */
+div > p {
+}
 ```
 
 ## Javascript
@@ -95,9 +100,8 @@ div > p {}
 ### 继承实现
 
 ```js
-
-function extend(child, parent){
-var F = function (){}; // 空函数为中介，减少实例时占用的内存
+function extend(child, parent) {
+    var F = function() {}; // 空函数为中介，减少实例时占用的内存
 
     F.prototype = parent.prototype; // f继承parent原型
 
@@ -106,74 +110,65 @@ var F = function (){}; // 空函数为中介，减少实例时占用的内存
     child.prototype.constructor = child; // child构造函数指会自身，保证继承统一
 
     child.super = parent.prototype; // 新增属性指向父类，保证子类继承完备
-
 }
-
 ```
 
 ### 深拷贝
 
 ```js
-
 function deepCopy(s, t) {
-t = t || (Object.prototype.toString.call(t) === '[object Array]' ? [] : {});
+    t = t || (Object.prototype.toString.call(t) === "[object Array]" ? [] : {});
 
     for (var i in s) {
-
-        if (typeof s[i] === 'object') {
+        if (typeof s[i] === "object") {
             t[i] = deepCopy(s[i], t[i]);
         } else {
             t[i] = s[i];
         }
-
     }
 
     return t;
-
 }
-
 ```
 
 ### Ajax
 
 ```js
-
 var ajax = {};
 
-ajax.get = function (url, fn) {
-var xhr = new XMLHttpRequest();
+ajax.get = function(url, fn) {
+    var xhr = new XMLHttpRequest();
 
-    xhr.open('GET', url, true);
+    xhr.open("GET", url, true);
 
-    xhr.onreadystatechange = function () {
-
-        if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 403)) {
-
+    xhr.onreadystatechange = function() {
+        if (
+            xhr.readyState === 4 &&
+            (xhr.status === 200 || xhr.status === 403)
+        ) {
             fn.call(this, xhr.responseText);
-
         }
-    }
+    };
 
     xhr.send();
+};
 
-}
+ajax.post = function(url, data, fn) {
+    var xhr = new XMLHttpRequest();
 
-ajax.post = function (url, data, fn) {
-var xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
 
-    xhr.open('POST', url, true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onreadystatechange = function () {
-
-        if (xhr.readyState === 4 && (xhr.status === 200 || xhr.status === 403)) {
+    xhr.onreadystatechange = function() {
+        if (
+            xhr.readyState === 4 &&
+            (xhr.status === 200 || xhr.status === 403)
+        ) {
             fn.call(this, xhr.responseText);
         }
-    }
+    };
 
     xhr.send(data);
-
-}
-
+};
 ```
