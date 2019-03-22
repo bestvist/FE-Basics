@@ -13,14 +13,24 @@
     -   [选择器](#选择器)
 
 -   [Javascript](#javascript)
+
     -   [继承实现](#继承实现)
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
     -   [格式化日期](#格式化日期)
+    -   [call 实现](#call实现)
+    -   [apply 实现](#apply实现)
+    -   [bind 实现](#bind实现)
+    -   [instanceof 实现](#instanceof实现)
+
+-   [双向绑定](#双向绑定)
+
+    -   [Object.defineProperty](#object.defineProperty)
+    -   [Proxy](#proxy)
 
 ## HTML
 
-### 基础标签
+#### 基础标签
 
 ```html
 <head></head>
@@ -68,7 +78,7 @@
 
 ## CSS
 
-### 选择器
+#### 选择器
 
 ```css
 /* 选择所有元素 */
@@ -98,7 +108,7 @@ div > p {
 
 ## Javascript
 
-### 继承实现
+#### 继承实现
 
 ```js
 function extend(child, parent) {
@@ -114,7 +124,7 @@ function extend(child, parent) {
 }
 ```
 
-### 深拷贝
+#### 深拷贝
 
 ```js
 function deepCopy(s, t) {
@@ -132,7 +142,7 @@ function deepCopy(s, t) {
 }
 ```
 
-### Ajax
+#### Ajax
 
 ```js
 var ajax = {};
@@ -174,7 +184,7 @@ ajax.post = function(url, data, fn) {
 };
 ```
 
-### 格式化日期
+#### 格式化日期
 
 ```js
 function formatDate(date, format) {
@@ -214,3 +224,5 @@ function formatDate(date, format) {
     return str;
 }
 ```
+
+## 双向绑定
