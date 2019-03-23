@@ -233,6 +233,8 @@ Function.prototype.callfb = function (ctx) {
         throw new Error('Function undefined');
     }
 
+    ctx = ctx || window;
+
     const fn = ctx.fn;
 
     ctx.fn = this;
@@ -254,6 +256,8 @@ Function.prototype.applyFb = function (ctx) {
     if (typeof this !== 'function') {
         throw new Error('Function undefined');
     }
+
+    ctx = ctx || window;
 
     const fn = ctx.fn;
 
