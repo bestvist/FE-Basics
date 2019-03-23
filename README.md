@@ -269,4 +269,28 @@ Function.prototype.applyfb = function (ctx) {
 }
 ```
 
+#### bind实现
+
+```js
+Function.prototype.bindfb = function (ctx) {
+
+    const fn = this;
+
+    const args = [...arguments].slice(1);
+
+    const F = function () {};
+
+    const fBind = function () {
+        return fn.apply(this instanceof fBind ? this : ctx, args.concat(...arguments))
+    }
+
+    if (fn.prototype) {
+        F.prototype = fn.prototype;
+        fBind.prototype = new F();
+    }
+
+    return fBind;
+}
+```
+
 ## 双向绑定
