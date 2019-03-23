@@ -290,8 +290,9 @@ Function.prototype.bindFb = function (ctx) {
 
     if (fn.prototype) {
         F.prototype = fn.prototype;
-        fBind.prototype = new F();
     }
+
+    fBind.prototype = new F();
 
     return fBind;
 }
