@@ -250,7 +250,7 @@ Function.prototype.callfb = function (ctx) {
 #### apply实现
 
 ```js
-Function.prototype.applyfb = function (ctx) {
+Function.prototype.applyFb = function (ctx) {
     if (typeof this !== 'function') {
         throw new Error('Function undefined');
     }
@@ -272,7 +272,7 @@ Function.prototype.applyfb = function (ctx) {
 #### bind实现
 
 ```js
-Function.prototype.bindfb = function (ctx) {
+Function.prototype.bindFb = function (ctx) {
 
     const fn = this;
 
@@ -290,6 +290,28 @@ Function.prototype.bindfb = function (ctx) {
     }
 
     return fBind;
+}
+```
+
+#### instanceof实现
+
+```js
+function instanceofFb(left, right) {
+    let proto, prototype = right.prototype;
+
+    proto = left.__proto__;
+
+    while (proto) {
+
+        if (proto === prototype) {
+            return true;
+        }
+
+        proto = proto.__proto__;
+
+    }
+
+    return false;
 }
 ```
 
