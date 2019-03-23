@@ -228,7 +228,7 @@ function formatDate(date, format) {
 #### call实现
 
 ```js
-Function.prototype.call2 = function (ctx) {
+Function.prototype.callfb = function (ctx) {
     if (typeof this !== 'function') {
         throw new Error('Function undefined');
     }
@@ -240,6 +240,28 @@ Function.prototype.call2 = function (ctx) {
     const args = [...arguments].splice(1);
 
     const res = ctx.fn(args);
+
+    ctx.fn = fn;
+
+    return res;
+}
+```
+
+#### apply实现
+
+```js
+Function.prototype.applyfb = function (ctx) {
+    if (typeof this !== 'function') {
+        throw new Error('Function undefined');
+    }
+
+    const fn = ctx.fn;
+
+    ctx.fn = this;
+
+    const arg = arguments[1];
+
+    const res = Array.isArray(arg) ? ctx.fn(...arg) : ctx.fn();
 
     ctx.fn = fn;
 
