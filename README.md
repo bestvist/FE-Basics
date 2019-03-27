@@ -25,7 +25,7 @@
 
 -   [双向绑定](#双向绑定)
 
-    -   [Object.defineProperty](#Object.defineProperty)
+    -   [Object.defineProperty](#objectdefineproperty)
     -   [Proxy](#proxy)
 
 ## HTML
@@ -298,7 +298,7 @@ Function.prototype.bindFb = function (ctx) {
 }
 ```
 
-#### instanceof实现
+#### instanceof 实现
 
 ```js
 function instanceofFb(left, right) {
