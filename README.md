@@ -18,10 +18,10 @@
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
     -   [格式化日期](#格式化日期)
-    -   [call 实现](#call实现)
-    -   [apply 实现](#apply实现)
-    -   [bind 实现](#bind实现)
-    -   [instanceof 实现](#instanceof实现)
+    -   [call 实现](#call-实现)
+    -   [apply 实现](#apply-实现)
+    -   [bind 实现](#bind-实现)
+    -   [instanceof 实现](#instanceof-实现)
 
 -   [双向绑定](#双向绑定)
 
@@ -225,7 +225,7 @@ function formatDate(date, format) {
 }
 ```
 
-#### call实现
+#### call 实现
 
 ```js
 Function.prototype.callfb = function (ctx) {
@@ -249,7 +249,7 @@ Function.prototype.callfb = function (ctx) {
 }
 ```
 
-#### apply实现
+#### apply 实现
 
 ```js
 Function.prototype.applyFb = function (ctx) {
@@ -273,7 +273,7 @@ Function.prototype.applyFb = function (ctx) {
 }
 ```
 
-#### bind实现
+#### bind 实现
 
 ```js
 Function.prototype.bindFb = function (ctx) {
