@@ -25,7 +25,7 @@
 
 -   [双向绑定](#双向绑定)
 
-    -   [Object.defineProperty](#object.defineProperty)
+    -   [Object.defineProperty](#Object.defineProperty)
     -   [Proxy](#proxy)
 
 ## HTML
@@ -321,3 +321,72 @@ function instanceofFb(left, right) {
 ```
 
 ## 双向绑定
+
+![mvvm](/images/mvvm.jpg)
+
+#### Object.defineProperty
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>mvvm</title>
+</head>
+<body>
+    <p>数据值：<span id="data"></span></p>
+    <p><input type="text" onkeyup="keyup()"></p>
+    <script>
+        var obj = {
+            data: ''
+        }
+
+        function keyup(e) {
+            e = e || window.event;
+            obj.data = e.target.value; // 更新数据值
+        }
+
+        Object.defineProperty(obj, 'data', {
+            get: function () {
+                return this.data;
+            },
+            set: function (newVal) {
+                document.getElementById('data').innerText = newVal; // 更新视图值
+            }
+        })
+    </script>
+</body>
+</html>
+```
+
+#### Proxy
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>mvvm</title>
+</head>
+<body>
+    <p>数据值：<span id="data"></span></p>
+    <p><input type="text" onkeyup="keyup()"></p>
+    <script>
+        var obj = new Proxy({}, {
+            get: function (target, key, receiver) {
+                return Reflect.get(target, key, receiver);
+            },
+            set: function (target, key, value, receiver) {
+                if (key === 'data') {
+                    document.getElementById('data').innerText = value; // 更新视图值
+                }
+                return Reflect.set(target, key, value, receiver);
+            }
+        })
+
+        function keyup(e) {
+            e = e || window.event;
+            obj.data = e.target.value; // 更新数据值
+        }
+    </script>
+</body>
+</html>
+```
