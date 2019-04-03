@@ -11,6 +11,7 @@
 -   [CSS](#css)
 
     -   [选择器](#选择器)
+    -   [文本溢出](#文本溢出)
 
 -   [Javascript](#javascript)
 
@@ -103,6 +104,25 @@ div p {
 
 /* 选择 div 元素内下一层级的 p 元素 */
 div > p {
+}
+```
+
+#### 文本溢出
+
+```css
+// 文本溢出单行显示
+.single {
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+
+// 文本溢出多行显示
+.multiple {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 ```
 
@@ -321,6 +341,8 @@ function instanceofFb(left, right) {
 ```
 
 ## 双向绑定
+
+**双向绑定**：视图（View）的变化能实时让数据模型（Model）发生变化，而数据的变化也能实时更新到视图层.
 
 ![mvvm](/images/mvvm.jpg)
 
