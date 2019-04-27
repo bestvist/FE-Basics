@@ -387,10 +387,10 @@ promiseFb.prototype.then = function (onFulfilled, onRejected) {
             this.resolvedCallbacks.push(onFulfilled);
             this.rejectedCallbacks.push(onRejected);
             break;
-        case 'resolve':
+        case 'resolved':
             onFulfilled(this.value);
             break;
-        case 'reject':
+        case 'rejected':
             onRejected(this.value);
             break;
         default: break;
