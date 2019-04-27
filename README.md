@@ -24,6 +24,8 @@
     -   [bind 实现](#bind-实现)
     -   [instanceof 实现](#instanceof-实现)
     -   [Promise 实现](#promise-实现)
+    -   [防抖](#防抖)
+    -   [节流](#节流)
 
 -   [双向绑定](#双向绑定)
 
@@ -394,6 +396,38 @@ promiseFb.prototype.then = function (onFulfilled, onRejected) {
             onRejected(this.value);
             break;
         default: break;
+    }
+}
+```
+
+#### 防抖
+
+```js
+function debounce(fn, wait, immediate) {
+    let timer;
+    return function () {
+        if (immediate) {
+            fn.apply(this, arguments);
+        }
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+            fn.apply(this, arguments);
+        }, wait)
+    }
+}
+```
+
+#### 节流
+
+```js
+function throttle(fn, wait) {
+    let prev = new Date();
+    return function () {
+        const now = new Date();
+        if (now - prev > wait) {
+            fn.apply(this, arguments);
+            prev = now;
+        }
     }
 }
 ```
