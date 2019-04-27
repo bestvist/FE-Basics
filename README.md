@@ -23,6 +23,7 @@
     -   [apply 实现](#apply-实现)
     -   [bind 实现](#bind-实现)
     -   [instanceof 实现](#instanceof-实现)
+    -   [Promise 实现](#promise-实现)
 
 -   [双向绑定](#双向绑定)
 
@@ -337,6 +338,59 @@ function instanceofFb(left, right) {
     }
 
     return false;
+}
+```
+
+#### Promise 实现
+
+```js
+function promiseFb(fn) {
+    const _this = this;
+    this.state = 'pending';
+    this.value = null;
+    this.resolvedCallbacks = [];
+    this.rejectedCallbacks = [];
+
+    function resolve(value) {
+        if (_this.state === 'pending') {
+            _this.state = 'resolved';
+            _this.value = value;
+            _this.resolvedCallbacks.map(cb => { cb(value) });
+        }
+    }
+
+    function reject(value) {
+        if (_this.state === 'pending') {
+            _this.state = 'rejected';
+            _this.value = value;
+            _this.rejectedCallbacks.map(cb => { cb(value) });
+        }
+    }
+
+    try {
+        fn(resolve, reject);
+    } catch (e) {
+        reject(e);
+    }
+}
+
+promiseFb.prototype.then = function (onFulfilled, onRejected) {
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : fn => fn;
+    onRejected = typeof onRejected === 'function' ? onRejected : e => { throw e };
+
+    switch (this.state) {
+        case 'pending':
+            this.resolvedCallbacks.push(onFulfilled);
+            this.rejectedCallbacks.push(onRejected);
+            break;
+        case 'resolve':
+            onFulfilled(this.value);
+            break;
+        case 'reject':
+            onRejected(this.value);
+            break;
+        default: break;
+    }
 }
 ```
 
