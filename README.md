@@ -346,16 +346,16 @@ function instanceofFb(left, right) {
 ```js
 function promiseFb(fn) {
     const _this = this;
-    this.state = 'pending';
+    this.state = 'pending'; // 初始状态为pending
     this.value = null;
-    this.resolvedCallbacks = [];
-    this.rejectedCallbacks = [];
+    this.resolvedCallbacks = []; // 这两个变量用于保存then中的回调，因为执行完Promise时状态可能还是pending
+    this.rejectedCallbacks = []; // 此时需要吧then中的回调保存起来方便状态改变时调用
 
     function resolve(value) {
         if (_this.state === 'pending') {
             _this.state = 'resolved';
             _this.value = value;
-            _this.resolvedCallbacks.map(cb => { cb(value) });
+            _this.resolvedCallbacks.map(cb => { cb(value) }); // 遍历数组，执行之前保存的then的回调函数
         }
     }
 
@@ -375,11 +375,15 @@ function promiseFb(fn) {
 }
 
 promiseFb.prototype.then = function (onFulfilled, onRejected) {
+    // 因为then的两个参数均为可选参数，
+    // 所以判断参数类型本身是否为函数，如果不是，则需要给一个默认函数如下（方便then不传参数时可以透传）
+    // 类似这样： Promise.resolve(4).then().then((value) => console.log(value))
     onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : fn => fn;
     onRejected = typeof onRejected === 'function' ? onRejected : e => { throw e };
 
     switch (this.state) {
         case 'pending':
+            // 若执行then时仍为pending状态时，添加函数到对应的函数数组
             this.resolvedCallbacks.push(onFulfilled);
             this.rejectedCallbacks.push(onRejected);
             break;
