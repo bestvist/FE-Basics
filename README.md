@@ -24,8 +24,8 @@
     -   [bind 实现](#bind-实现)
     -   [instanceof 实现](#instanceof-实现)
     -   [Promise 实现](#promise-实现)
-    -   [防抖](#防抖)
-    -   [节流](#节流)
+    -   [debounce 防抖](#debounce-防抖)
+    -   [throttle 节流](#throttle-节流)
 
 -   [双向绑定](#双向绑定)
 
@@ -400,7 +400,7 @@ promiseFb.prototype.then = function (onFulfilled, onRejected) {
 }
 ```
 
-#### 防抖
+#### debounce 防抖
 
 ```js
 function debounce(fn, wait, immediate) {
@@ -417,7 +417,7 @@ function debounce(fn, wait, immediate) {
 }
 ```
 
-#### 节流
+#### throttle 节流
 
 ```js
 function throttle(fn, wait) {
