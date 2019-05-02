@@ -2,7 +2,7 @@
 
 > 📒 前端基础知识。
 
--   [技能树](https://www.xmind.net/embed/JzUN/)
+-   [技能树](#技能树)
 -   [BFC](#bfc)
 
 -   [HTML](#html)
@@ -32,6 +32,9 @@
 
     -   [Object.defineProperty](#objectdefineproperty)
     -   [Proxy](#proxy)
+
+## 技能树
+![](/images/web-tree.png)
 
 ## BFC
 
