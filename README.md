@@ -11,8 +11,10 @@
 
 -   [CSS](#css)
 
+    -   [CSS 样式](css-样式)
     -   [选择器](#选择器)
     -   [文本溢出](#文本溢出)
+    -   [CSS3 新特性](#css3-新特性)
 
 -   [Javascript](#javascript)
 
@@ -109,6 +111,10 @@
 
 ## CSS
 
+#### CSS 样式
+
+> **优先级:** 行内样式 > 链接式 > 内嵌式 > @import 导入式
+
 #### 选择器
 
 ```css
@@ -137,6 +143,9 @@ div > p {
 }
 ```
 
+**css选择器权重:** 
+!important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
+
 #### 文本溢出
 
 ```css
@@ -155,6 +164,15 @@ div > p {
   overflow: hidden;
 }
 ```
+
+#### CSS3 新特性
+
+-   transition：过渡
+-   transform：旋转、缩放、移动或者倾斜
+-   animation：动画
+-   gradient：渐变
+-   shadow：阴影
+-   border-radius：圆角
 
 ## Javascript
 
