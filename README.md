@@ -4,6 +4,7 @@
 
 -   [技能树](#技能树)
 -   [BFC](#bfc)
+-   [TCP](#tcp)
 
 -   [HTML](#html)
 
@@ -18,6 +19,7 @@
 
 -   [Javascript](#javascript)
 
+    -   [原型与原型链](#原型与原型链)
     -   [继承实现](#继承实现)
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
@@ -40,9 +42,9 @@
 
 ## BFC
 
-**BFC 定义:** BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+BFC 定义: BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
 
-**BFC布局规则:**
+BFC布局规则:
 
 -   内部的Box会在垂直方向，一个接一个地放置。
 -   Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
@@ -51,7 +53,7 @@
 -   BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
 -   计算BFC的高度时，浮动元素也参与计算
 
-**哪些元素会生成BFC:**
+哪些元素会生成BFC:
 
 -   根元素
 -   float属性不为none
@@ -60,6 +62,16 @@
 -   overflow不为visible
 
 [参考](https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html)
+
+## TCP
+
+#### TCP三次握手
+
+![](/images/TCP.png)
+
+#### TCP四次挥手
+
+![](images/TCP-close.png)
 
 ## HTML
 
@@ -113,7 +125,7 @@
 
 #### CSS 样式
 
-> **优先级:** 行内样式 > 链接式 > 内嵌式 > @import 导入式
+优先级: 行内样式 > 链接式 > 内嵌式 > @import 导入式
 
 #### 选择器
 
@@ -143,8 +155,7 @@ div > p {
 }
 ```
 
-**css选择器权重:** 
-!important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
+css选择器权重: !important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
 
 #### 文本溢出
 
@@ -175,6 +186,13 @@ div > p {
 -   border-radius：圆角
 
 ## Javascript
+
+#### 原型与原型链
+
+-   实例的 __proto__ 属性（原型）等于其构造函数的 prototype 属性。
+-   Object.proto === Function.prototype
+-   Function.prototype.proto === Object.prototype
+-   Object.prototype.proto === null
 
 #### 继承实现
 
