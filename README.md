@@ -7,6 +7,11 @@
 -   [浏览器渲染页面过程](#浏览器渲染页面过程)
 -   [TCP](#tcp)
 -   [JS单线程运行机制](#JS单线程运行机制)
+-   [事件](#事件)
+    
+    -   [事件流](#事件流)
+    -   [事件委托](#事件委托)
+
 -   [HTML](#html)
 
     -   [基础标签](#基础标签)
@@ -105,6 +110,20 @@ BFC布局规则:
 macroTask(宏任务): 主代码块, setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
 
 microTask(微任务): process.nextTick, Promise, Object.observe, MutationObserver
+
+## 事件
+
+#### 事件流
+
+-   事件捕获阶段
+-   处于目标阶段
+-   事件冒泡阶段
+
+#### 事件委托
+
+不在事件的发生地（直接dom）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上事件的触发，通过判断事件发生元素DOM的类型，来做出不同的响应。
+
+举例：最经典的就是ul和li标签的事件监听
 
 ## HTML
 
