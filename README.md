@@ -30,7 +30,7 @@
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
     -   [格式化日期](#格式化日期)
-    -   [new 实现]（#new-实现）
+    -   [new实现]（#new-实现）
     -   [call 实现](#call-实现)
     -   [apply 实现](#apply-实现)
     -   [bind 实现](#bind-实现)
