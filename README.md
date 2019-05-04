@@ -4,8 +4,9 @@
 
 -   [技能树](#技能树)
 -   [BFC](#bfc)
+-   [浏览器渲染页面过程](#浏览器渲染页面过程)
 -   [TCP](#tcp)
-
+-   [JS单线程运行机制](#JS单线程运行机制)
 -   [HTML](#html)
 
     -   [基础标签](#基础标签)
@@ -36,6 +37,10 @@
 
     -   [Object.defineProperty](#objectdefineproperty)
     -   [Proxy](#proxy)
+    
+-   [算法](#算法)
+
+    -   [冒泡排序](#冒泡排序)
 
 ## 技能树
 ![](/images/web-tree.png)
@@ -72,6 +77,29 @@ BFC布局规则:
 #### TCP四次挥手
 
 ![](images/TCP-close.png)
+
+## 浏览器渲染页面过程
+
+1. 用户输入URL地址
+2. 对URL地址进行DNS域名解析
+3. 建立TCP连接（三次握手）
+4. 浏览器发送HTTP请求报文
+5. 服务器返回HTTP响应报文
+6. 关闭TCP连接（四次挥手）
+7. 浏览器解析文档资源并渲染页面
+
+## JS单线程运行机制
+
+-   消息队列：消息队列是一个先进先出的队列，它里面存放着各种消息。
+-   事件循环：事件循环是指主线程重复从消息队列中取消息、执行的过程。
+
+主线程只会做一件事情，就是从消息队列里面取消息、执行消息，再取消息、再执行。当消息队列为空时，就会等待直到消息队列变成非空。而且主线程只有在将当前的消息执行完成后，才会去取下一个消息。这种机制就叫做事件循环机制，取一个消息并执行的过程叫做一次循环。消息就是注册异步任务时添加的回调函数。
+
+#### 事件循环
+
+macroTask(宏任务): 主代码块, setTimeout, setInterval, setImmediate, requestAnimationFrame, I/O, UI rendering
+
+microTask(微任务): process.nextTick, Promise, Object.observe, MutationObserver
 
 ## HTML
 
@@ -566,4 +594,25 @@ function throttle(fn, wait) {
     </script>
 </body>
 </html>
+```
+
+## 算法
+
+#### 冒泡排序
+
+```js
+function bubble(arr) {
+    const len = arr.length;
+
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len - i - 1; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
 ```
