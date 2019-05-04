@@ -41,6 +41,11 @@
 -   [算法](#算法)
 
     -   [冒泡排序](#冒泡排序)
+    -   [选择排序](#选择排序)
+  
+-   [Webpack](#webpack)
+    
+    -   [常用loader](#常用loader)
 
 ## 技能树
 ![](/images/web-tree.png)
@@ -600,6 +605,8 @@ function throttle(fn, wait) {
 
 #### 冒泡排序
 
+两两对比
+
 ```js
 function bubble(arr) {
     const len = arr.length;
@@ -616,3 +623,39 @@ function bubble(arr) {
     return arr;
 }
 ```
+
+####  选择排序
+
+寻找最小的数，将索引保存
+
+```js
+function selection(arr) {
+    const len = arr.length;
+    let minIndex, temp;
+    for (let i = 0; i < len - 1; i++) {
+        minIndex = i;
+        for (let j = i + 1; j < len; j++) {
+            if (arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+        }
+        temp = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temp;
+    }
+    return arr;
+}
+```
+
+## Webpack
+
+#### 常用loader
+
+-   file-loader: 加载文件资源，如 字体 / 图片 等，具有移动/复制/命名等功能；
+-   url-loader: 通常用于加载图片，可以将小图片直接转换为 Date Url，减少请求；
+-   babel-loader: 加载 js / jsx 文件， 将 ES6 / ES7 代码转换成 ES5，抹平兼容性问题；
+-   ts-loader: 加载 ts / tsx 文件，编译 TypeScript；
+-   style-loader: 将 css 代码以<style>标签的形式插入到 html 中；
+-   css-loader: 分析@import和url()，引用 css 文件与对应的资源；
+-   postcss-loader: 用于 css 的兼容性处理，具有众多功能，例如 添加前缀，单位转换 等；
+-   less-loader / sass-loader: css预处理器，在 css 中新增了许多语法，提高了开发效率；
