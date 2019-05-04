@@ -30,7 +30,7 @@
     -   [深拷贝](#深拷贝)
     -   [Ajax](#ajax)
     -   [格式化日期](#格式化日期)
-    -   [new实现]（#new-实现）
+    -   [new 实现](#new-实现)
     -   [call 实现](#call-实现)
     -   [apply 实现](#apply-实现)
     -   [bind 实现](#bind-实现)
@@ -79,16 +79,6 @@ BFC布局规则:
 
 [参考](https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html)
 
-## TCP
-
-#### TCP三次握手
-
-![](/images/TCP.png)
-
-#### TCP四次挥手
-
-![](images/TCP-close.png)
-
 ## 浏览器渲染页面过程
 
 1. 用户输入URL地址
@@ -98,6 +88,16 @@ BFC布局规则:
 5. 服务器返回HTTP响应报文
 6. 关闭TCP连接（四次挥手）
 7. 浏览器解析文档资源并渲染页面
+
+## TCP
+
+#### TCP三次握手
+
+![](/images/TCP.png)
+
+#### TCP四次挥手
+
+![](images/TCP-close.png)
 
 ## JS单线程运行机制
 
