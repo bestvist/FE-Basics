@@ -391,7 +391,7 @@ Function.prototype.callfb = function (ctx) {
 
     const args = [...arguments].slice(1);
 
-    const res = ctx.fn(args);
+    const res = ctx.fn(...args);
 
     ctx.fn = fn;
 
