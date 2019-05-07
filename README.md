@@ -52,6 +52,7 @@
 -   [Webpack](#webpack)
     
     -   [常用loader](#常用loader)
+    -   [常用plugin](#常用plugin)
 
 ## 技能树
 ![](/images/web-tree.png)
@@ -690,3 +691,17 @@ function selection(arr) {
 -   css-loader: 分析@import和url()，引用 css 文件与对应的资源；
 -   postcss-loader: 用于 css 的兼容性处理，具有众多功能，例如 添加前缀，单位转换 等；
 -   less-loader / sass-loader: css预处理器，在 css 中新增了许多语法，提高了开发效率；
+
+#### 常用plugin
+
+-   UglifyJsPlugin: 压缩、混淆代码；
+-   CommonsChunkPlugin: 代码分割；
+-   ProvidePlugin: 自动加载模块；
+-   html-webpack-plugin: 加载 html 文件，并引入 css / js 文件；
+-   extract-text-webpack-plugin / mini-css-extract-plugin: 抽离样式，生成 css 文件；
+-   DefinePlugin: 定义全局变量；
+-   optimize-css-assets-webpack-plugin: CSS 代码去重；
+-   webpack-bundle-analyzer: 代码分析；
+-   compression-webpack-plugin: 使用 gzip 压缩 js 和 css；
+-   happypack: 使用多进程，加速代码构建；
+-   EnvironmentPlugin: 定义环境变量；
