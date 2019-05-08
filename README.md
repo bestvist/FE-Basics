@@ -526,6 +526,55 @@ promiseFb.prototype.then = function (onFulfilled, onRejected) {
         default: break;
     }
 }
+
+promiseFb.all = function (promises) {
+    // 当这个数组里的所有promise对象全部变为resolve状态的时候，才会resolve
+    return new Promise((resolve, reject) => {
+        let done = gen(promises.length, resolve);
+        promises.forEach((promise, index) => {
+            promise.then(value => {
+                done(index, value)
+            }, reject)
+        })
+    })
+}
+
+function gen(lenth, resolve) {
+    let count = 0;
+    let values = [];
+    return function (i, value) {
+        values[i] = value;
+        if (++count === lenth) {
+            resolve(values);
+        }
+    }
+}
+
+promiseFb.race = function (promises) {
+    // 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理
+    return new Promise((resolve, reject) => {
+        promises.forEach(promise => {
+            promise.then(resolve, reject);
+        })
+    })
+}
+
+promiseFb.prototype.catch = function (onRejected) {
+    // 用于promise方法链时 捕获前面onFulfilled/onRejected抛出的异常
+    return this.then(null, onRejected);
+}
+
+promiseFb.resolve = function (value) {
+    return new Promise((resolve, reject) => {
+        resolve(value);
+    })
+}
+
+promiseFb.reject = function (reason) {
+    return new Promise((resolve, reject) => {
+        reject(reason);
+    })
+}
 ```
 
 #### debounce 防抖
