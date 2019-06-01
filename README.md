@@ -414,9 +414,9 @@ Function.prototype.applyFb = function (ctx) {
 
     ctx.fn = this;
 
-    const arg = arguments[1];
+    const args = arguments[1];
 
-    const res = Array.isArray(arg) ? ctx.fn(...arg) : ctx.fn();
+    const res = Array.isArray(args) ? ctx.fn(...args) : ctx.fn();
 
     ctx.fn = fn;
 
