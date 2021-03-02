@@ -6,9 +6,9 @@
 -   [BFC](#bfc)
 -   [浏览器渲染页面过程](#浏览器渲染页面过程)
 -   [TCP](#tcp)
--   [JS单线程运行机制](#JS单线程运行机制)
+-   [JS 单线程运行机制](#JS单线程运行机制)
 -   [事件](#事件)
-    
+
     -   [事件流](#事件流)
     -   [事件委托](#事件委托)
 
@@ -43,64 +43,65 @@
 
     -   [Object.defineProperty](#objectdefineproperty)
     -   [Proxy](#proxy)
-    
+
 -   [算法](#算法)
 
     -   [冒泡排序](#冒泡排序)
     -   [选择排序](#选择排序)
-  
+
 -   [Webpack](#webpack)
-    
-    -   [常用loader](#常用loader)
-    -   [常用plugin](#常用plugin)
+
+    -   [常用 loader](#常用loader)
+    -   [常用 plugin](#常用plugin)
 
 ## 技能树
+
 ![](/images/web-tree.png)
 
 ## BFC
 
-BFC 定义: BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干。
+BFC 定义: BFC(Block formatting context)直译为"块级格式化上下文"。它是一个独立的渲染区域，只有 Block-level box 参与， 它规定了内部的 Block-level Box 如何布局，并且与这个区域外部毫不相干。
 
-BFC布局规则:
+BFC 布局规则:
 
--   内部的Box会在垂直方向，一个接一个地放置。
--   Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠
--   每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
--   BFC的区域不会与float box重叠。
--   BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
--   计算BFC的高度时，浮动元素也参与计算
+-   内部的 Box 会在垂直方向，一个接一个地放置。
+-   Box 垂直方向的距离由 margin 决定。属于同一个 BFC 的两个相邻 Box 的 margin 会发生重叠
+-   每个元素的 margin box 的左边， 与包含块 border box 的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。
+-   BFC 的区域不会与 float box 重叠。
+-   BFC 就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。
+-   计算 BFC 的高度时，浮动元素也参与计算
 
-哪些元素会生成BFC:
+哪些元素会生成 BFC:
 
 -   根元素
--   float属性不为none
--   position为absolute或fixed
--   display为inline-block, table-cell, table-caption, flex, inline-flex
--   overflow不为visible
+-   float 属性不为 none
+-   position 为 absolute 或 fixed
+-   display 为 inline-block, table-cell, table-caption, flex, inline-flex
+-   overflow 不为 visible
 
 [参考](https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html)
 
 ## 浏览器渲染页面过程
 
-1. 用户输入URL地址
-2. 对URL地址进行DNS域名解析
-3. 建立TCP连接（三次握手）
-4. 浏览器发送HTTP请求报文
-5. 服务器返回HTTP响应报文
-6. 关闭TCP连接（四次挥手）
+1. 用户输入 URL 地址
+2. 对 URL 地址进行 DNS 域名解析
+3. 建立 TCP 连接（三次握手）
+4. 浏览器发送 HTTP 请求报文
+5. 服务器返回 HTTP 响应报文
+6. 关闭 TCP 连接（四次挥手）
 7. 浏览器解析文档资源并渲染页面
 
 ## TCP
 
-#### TCP三次握手
+#### TCP 三次握手
 
 ![](/images/TCP.png)
 
-#### TCP四次挥手
+#### TCP 四次挥手
 
 ![](images/TCP-close.png)
 
-## JS单线程运行机制
+## JS 单线程运行机制
 
 -   消息队列：消息队列是一个先进先出的队列，它里面存放着各种消息。
 -   事件循环：事件循环是指主线程重复从消息队列中取消息、执行的过程。
@@ -123,9 +124,9 @@ microTask(微任务): process.nextTick, Promise, Object.observe, MutationObserve
 
 #### 事件委托
 
-不在事件的发生地（直接dom）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上事件的触发，通过判断事件发生元素DOM的类型，来做出不同的响应。
+不在事件的发生地（直接 dom）上设置监听函数，而是在其父元素上设置监听函数，通过事件冒泡，父元素可以监听到子元素上事件的触发，通过判断事件发生元素 DOM 的类型，来做出不同的响应。
 
-举例：最经典的就是ul和li标签的事件监听
+举例：最经典的就是 ul 和 li 标签的事件监听
 
 ## HTML
 
@@ -209,24 +210,24 @@ div > p {
 }
 ```
 
-css选择器权重: !important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> * -> 继承 -> 默认
+css 选择器权重: !important -> 行内样式 -> #id -> .class -> 元素和伪元素 -> \* -> 继承 -> 默认
 
 #### 文本溢出
 
 ```css
 // 文本溢出单行显示
 .single {
-  overflow: hidden;
-  text-overflow:ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 // 文本溢出多行显示
 .multiple {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
-  overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
 }
 ```
 
@@ -243,7 +244,7 @@ css选择器权重: !important -> 行内样式 -> #id -> .class -> 元素和伪�
 
 #### 原型与原型链
 
--   实例的 __proto__ 属性（原型）等于其构造函数的 prototype 属性。
+-   实例的 **proto** 属性（原型）等于其构造函数的 prototype 属性。
 -   Object.proto === Function.prototype
 -   Function.prototype.proto === Object.prototype
 -   Object.prototype.proto === null
@@ -252,7 +253,7 @@ css选择器权重: !important -> 行内样式 -> #id -> .class -> 元素和伪�
 
 ```js
 function extend(child, parent) {
-    var F = function() {}; // 空函数为中介，减少实例时占用的内存
+    var F = function () {}; // 空函数为中介，减少实例时占用的内存
 
     F.prototype = parent.prototype; // f继承parent原型
 
@@ -287,12 +288,12 @@ function deepCopy(s, t) {
 ```js
 var ajax = {};
 
-ajax.get = function(url, fn) {
+ajax.get = function (url, fn) {
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", url, true);
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (
             xhr.readyState === 4 &&
             (xhr.status === 200 || xhr.status === 403)
@@ -304,14 +305,14 @@ ajax.get = function(url, fn) {
     xhr.send();
 };
 
-ajax.post = function(url, data, fn) {
+ajax.post = function (url, data, fn) {
     var xhr = new XMLHttpRequest();
 
     xhr.open("POST", url, true);
 
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
         if (
             xhr.readyState === 4 &&
             (xhr.status === 200 || xhr.status === 403)
@@ -344,7 +345,7 @@ function formatDate(date, format) {
         h: date.getHours(),
         i: date.getMinutes(),
         s: date.getSeconds(),
-        a: date.getDay()
+        a: date.getDay(),
     };
 
     const dayArr = ["一", "二", "三", "四", "五", "六", "日"];
@@ -372,7 +373,7 @@ function New(Class) {
     let obj = {};
     obj.__proto__ = Class.prototype;
     let res = Class.call(obj);
-    return typeof res === 'object' ? res : obj;
+    return typeof res === "object" ? res : obj;
 }
 ```
 
@@ -380,8 +381,8 @@ function New(Class) {
 
 ```js
 Function.prototype.callfb = function (ctx) {
-    if (typeof this !== 'function') {
-        throw new Error('Function undefined');
+    if (typeof this !== "function") {
+        throw new Error("Function undefined");
     }
 
     ctx = ctx || window;
@@ -397,15 +398,15 @@ Function.prototype.callfb = function (ctx) {
     ctx.fn = fn;
 
     return res;
-}
+};
 ```
 
 #### apply 实现
 
 ```js
 Function.prototype.applyFb = function (ctx) {
-    if (typeof this !== 'function') {
-        throw new Error('Function undefined');
+    if (typeof this !== "function") {
+        throw new Error("Function undefined");
     }
 
     ctx = ctx || window;
@@ -421,14 +422,13 @@ Function.prototype.applyFb = function (ctx) {
     ctx.fn = fn;
 
     return res;
-}
+};
 ```
 
 #### bind 实现
 
 ```js
 Function.prototype.bindFb = function (ctx) {
-
     const fn = this;
 
     const args = [...arguments].slice(1);
@@ -436,8 +436,11 @@ Function.prototype.bindFb = function (ctx) {
     const F = function () {};
 
     const fBind = function () {
-        return fn.apply(this instanceof fBind ? this : ctx, args.concat(...arguments))
-    }
+        return fn.apply(
+            this instanceof fBind ? this : ctx,
+            args.concat(...arguments)
+        );
+    };
 
     if (fn.prototype) {
         F.prototype = fn.prototype;
@@ -446,25 +449,24 @@ Function.prototype.bindFb = function (ctx) {
     fBind.prototype = new F();
 
     return fBind;
-}
+};
 ```
 
 #### instanceof 实现
 
 ```js
 function instanceofFb(left, right) {
-    let proto, prototype = right.prototype;
+    let proto,
+        prototype = right.prototype;
 
     proto = left.__proto__;
 
     while (proto) {
-
         if (proto === prototype) {
             return true;
         }
 
         proto = proto.__proto__;
-
     }
 
     return false;
@@ -476,24 +478,28 @@ function instanceofFb(left, right) {
 ```js
 function promiseFb(fn) {
     const _this = this;
-    this.state = 'pending'; // 初始状态为pending
+    this.state = "pending"; // 初始状态为pending
     this.value = null;
     this.resolvedCallbacks = []; // 这两个变量用于保存then中的回调，因为执行完Promise时状态可能还是pending
     this.rejectedCallbacks = []; // 此时需要吧then中的回调保存起来方便状态改变时调用
 
     function resolve(value) {
-        if (_this.state === 'pending') {
-            _this.state = 'resolved';
+        if (_this.state === "pending") {
+            _this.state = "resolved";
             _this.value = value;
-            _this.resolvedCallbacks.map(cb => { cb(value) }); // 遍历数组，执行之前保存的then的回调函数
+            _this.resolvedCallbacks.map((cb) => {
+                cb(value);
+            }); // 遍历数组，执行之前保存的then的回调函数
         }
     }
 
     function reject(value) {
-        if (_this.state === 'pending') {
-            _this.state = 'rejected';
+        if (_this.state === "pending") {
+            _this.state = "rejected";
             _this.value = value;
-            _this.rejectedCallbacks.map(cb => { cb(value) });
+            _this.rejectedCallbacks.map((cb) => {
+                cb(value);
+            });
         }
     }
 
@@ -508,36 +514,42 @@ promiseFb.prototype.then = function (onFulfilled, onRejected) {
     // 因为then的两个参数均为可选参数，
     // 所以判断参数类型本身是否为函数，如果不是，则需要给一个默认函数如下（方便then不传参数时可以透传）
     // 类似这样： Promise.resolve(4).then().then((value) => console.log(value))
-    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : fn => fn;
-    onRejected = typeof onRejected === 'function' ? onRejected : e => { throw e };
+    onFulfilled = typeof onFulfilled === "function" ? onFulfilled : (fn) => fn;
+    onRejected =
+        typeof onRejected === "function"
+            ? onRejected
+            : (e) => {
+                  throw e;
+              };
 
     switch (this.state) {
-        case 'pending':
+        case "pending":
             // 若执行then时仍为pending状态时，添加函数到对应的函数数组
             this.resolvedCallbacks.push(onFulfilled);
             this.rejectedCallbacks.push(onRejected);
             break;
-        case 'resolved':
+        case "resolved":
             onFulfilled(this.value);
             break;
-        case 'rejected':
+        case "rejected":
             onRejected(this.value);
             break;
-        default: break;
+        default:
+            break;
     }
-}
+};
 
 promiseFb.all = function (promises) {
     // 当这个数组里的所有promise对象全部变为resolve状态的时候，才会resolve
     return new Promise((resolve, reject) => {
         let done = gen(promises.length, resolve);
         promises.forEach((promise, index) => {
-            promise.then(value => {
-                done(index, value)
-            }, reject)
-        })
-    })
-}
+            promise.then((value) => {
+                done(index, value);
+            }, reject);
+        });
+    });
+};
 
 function gen(lenth, resolve) {
     let count = 0;
@@ -547,34 +559,34 @@ function gen(lenth, resolve) {
         if (++count === lenth) {
             resolve(values);
         }
-    }
+    };
 }
 
 promiseFb.race = function (promises) {
     // 只要有一个promise对象进入 FulFilled 或者 Rejected 状态的话，就会继续进行后面的处理
     return new Promise((resolve, reject) => {
-        promises.forEach(promise => {
+        promises.forEach((promise) => {
             promise.then(resolve, reject);
-        })
-    })
-}
+        });
+    });
+};
 
 promiseFb.prototype.catch = function (onRejected) {
     // 用于promise方法链时 捕获前面onFulfilled/onRejected抛出的异常
     return this.then(null, onRejected);
-}
+};
 
 promiseFb.resolve = function (value) {
     return new Promise((resolve, reject) => {
         resolve(value);
-    })
-}
+    });
+};
 
 promiseFb.reject = function (reason) {
     return new Promise((resolve, reject) => {
         reject(reason);
-    })
-}
+    });
+};
 ```
 
 #### debounce 防抖
@@ -589,8 +601,8 @@ function debounce(fn, wait, immediate) {
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
             fn.apply(this, arguments);
-        }, wait)
-    }
+        }, wait);
+    };
 }
 ```
 
@@ -605,7 +617,7 @@ function throttle(fn, wait) {
             fn.apply(this, arguments);
             prev = now;
         }
-    }
+    };
 }
 ```
 
@@ -620,32 +632,32 @@ function throttle(fn, wait) {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>mvvm</title>
-</head>
-<body>
-    <p>数据值：<span id="data"></span></p>
-    <p><input type="text" onkeyup="keyup()"></p>
-    <script>
-        var obj = {
-            data: ''
-        }
+    <head>
+        <title>mvvm</title>
+    </head>
+    <body>
+        <p>数据值：<span id="data"></span></p>
+        <p><input type="text" onkeyup="keyup()" /></p>
+        <script>
+            var obj = {
+                data: "",
+            };
 
-        function keyup(e) {
-            e = e || window.event;
-            obj.data = e.target.value; // 更新数据值
-        }
-
-        Object.defineProperty(obj, 'data', {
-            get: function () {
-                return this.data;
-            },
-            set: function (newVal) {
-                document.getElementById('data').innerText = newVal; // 更新视图值
+            function keyup(e) {
+                e = e || window.event;
+                obj.data = e.target.value; // 更新数据值
             }
-        })
-    </script>
-</body>
+
+            Object.defineProperty(obj, "data", {
+                get: function () {
+                    return this.data;
+                },
+                set: function (newVal) {
+                    document.getElementById("data").innerText = newVal; // 更新视图值
+                },
+            });
+        </script>
+    </body>
 </html>
 ```
 
@@ -654,31 +666,34 @@ function throttle(fn, wait) {
 ```html
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>mvvm</title>
-</head>
-<body>
-    <p>数据值：<span id="data"></span></p>
-    <p><input type="text" onkeyup="keyup()"></p>
-    <script>
-        var obj = new Proxy({}, {
-            get: function (target, key, receiver) {
-                return Reflect.get(target, key, receiver);
-            },
-            set: function (target, key, value, receiver) {
-                if (key === 'data') {
-                    document.getElementById('data').innerText = value; // 更新视图值
+    <head>
+        <title>mvvm</title>
+    </head>
+    <body>
+        <p>数据值：<span id="data"></span></p>
+        <p><input type="text" onkeyup="keyup()" /></p>
+        <script>
+            var obj = new Proxy(
+                {},
+                {
+                    get: function (target, key, receiver) {
+                        return Reflect.get(target, key, receiver);
+                    },
+                    set: function (target, key, value, receiver) {
+                        if (key === "data") {
+                            document.getElementById("data").innerText = value; // 更新视图值
+                        }
+                        return Reflect.set(target, key, value, receiver);
+                    },
                 }
-                return Reflect.set(target, key, value, receiver);
-            }
-        })
+            );
 
-        function keyup(e) {
-            e = e || window.event;
-            obj.data = e.target.value; // 更新数据值
-        }
-    </script>
-</body>
+            function keyup(e) {
+                e = e || window.event;
+                obj.data = e.target.value; // 更新数据值
+            }
+        </script>
+    </body>
 </html>
 ```
 
@@ -705,7 +720,7 @@ function bubble(arr) {
 }
 ```
 
-####  选择排序
+#### 选择排序
 
 寻找最小的数，将索引保存
 
@@ -730,18 +745,18 @@ function selection(arr) {
 
 ## Webpack
 
-#### 常用loader
+#### 常用 loader
 
 -   file-loader: 加载文件资源，如 字体 / 图片 等，具有移动/复制/命名等功能；
 -   url-loader: 通常用于加载图片，可以将小图片直接转换为 Date Url，减少请求；
 -   babel-loader: 加载 js / jsx 文件， 将 ES6 / ES7 代码转换成 ES5，抹平兼容性问题；
 -   ts-loader: 加载 ts / tsx 文件，编译 TypeScript；
 -   style-loader: 将 css 代码以<style>标签的形式插入到 html 中；
--   css-loader: 分析@import和url()，引用 css 文件与对应的资源；
+-   css-loader: 分析@import 和 url()，引用 css 文件与对应的资源；
 -   postcss-loader: 用于 css 的兼容性处理，具有众多功能，例如 添加前缀，单位转换 等；
--   less-loader / sass-loader: css预处理器，在 css 中新增了许多语法，提高了开发效率；
+-   less-loader / sass-loader: css 预处理器，在 css 中新增了许多语法，提高了开发效率；
 
-#### 常用plugin
+#### 常用 plugin
 
 -   UglifyJsPlugin: 压缩、混淆代码；
 -   CommonsChunkPlugin: 代码分割；
@@ -754,3 +769,71 @@ function selection(arr) {
 -   compression-webpack-plugin: 使用 gzip 压缩 js 和 css；
 -   happypack: 使用多进程，加速代码构建；
 -   EnvironmentPlugin: 定义环境变量；
+
+## 设计模式
+
+#### 发布订阅模式
+
+```js
+const events = {
+    listeners: {},
+    subscribe: function (key, fn) {
+        if (this.listeners[key]) {
+            this.listeners[key] = [];
+        }
+        this.listeners[key].push(fn);
+    },
+    trigger: function () {
+        const key = Array.prototype.shift.call(arguments);
+        if (!this.listeners[key]) return;
+        this.listeners[key].forEach((fn) => {
+            fn.apply(this, arguments);
+        });
+    },
+    remove: function (key, fn) {
+        let fns = this.listeners[key];
+        if (!fn) {
+            this.listeners[key] = [];
+            return;
+        }
+        for (let index = 0; index < fns.length; index++) {
+            const _fn = fns[index];
+            if (_fn === fn) {
+                fns.splice(index, 1);
+            }
+        }
+    },
+};
+```
+
+#### 观察者模式
+
+```js
+function Dep() {
+    this.subs = [];
+}
+
+Dep.prototype.addSub = function (sub) {
+    this.subs.push(sub);
+};
+
+Dep.prototype.notify = function () {
+    this.subs.forEach((sub) => sub.update());
+};
+
+const Watcher = function (fn) {
+    this.fn = fn;
+};
+Watcher.prototype.update = function () {
+    this.fn();
+};
+
+const dep = new Dep();
+dep.addSub(
+    new Watcher(function () {
+        console.log("update");
+    })
+);
+
+dep.notify();
+```
