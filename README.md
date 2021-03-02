@@ -2,57 +2,7 @@
 
 > 📒 前端基础知识。
 
--   [技能树](#技能树)
--   [BFC](#bfc)
--   [浏览器渲染页面过程](#浏览器渲染页面过程)
--   [TCP](#tcp)
--   [JS 单线程运行机制](#JS单线程运行机制)
--   [事件](#事件)
-
-    -   [事件流](#事件流)
-    -   [事件委托](#事件委托)
-
--   [HTML](#html)
-
-    -   [基础标签](#基础标签)
-
--   [CSS](#css)
-
-    -   [CSS 样式](css-样式)
-    -   [选择器](#选择器)
-    -   [文本溢出](#文本溢出)
-    -   [CSS3 新特性](#css3-新特性)
-
--   [Javascript](#javascript)
-
-    -   [原型与原型链](#原型与原型链)
-    -   [继承实现](#继承实现)
-    -   [深拷贝](#深拷贝)
-    -   [Ajax](#ajax)
-    -   [格式化日期](#格式化日期)
-    -   [new 实现](#new-实现)
-    -   [call 实现](#call-实现)
-    -   [apply 实现](#apply-实现)
-    -   [bind 实现](#bind-实现)
-    -   [instanceof 实现](#instanceof-实现)
-    -   [Promise 实现](#promise-实现)
-    -   [debounce 防抖](#debounce-防抖)
-    -   [throttle 节流](#throttle-节流)
-
--   [双向绑定](#双向绑定)
-
-    -   [Object.defineProperty](#objectdefineproperty)
-    -   [Proxy](#proxy)
-
--   [算法](#算法)
-
-    -   [冒泡排序](#冒泡排序)
-    -   [选择排序](#选择排序)
-
--   [Webpack](#webpack)
-
-    -   [常用 loader](#常用loader)
-    -   [常用 plugin](#常用plugin)
+[TOC]
 
 ## 技能树
 
