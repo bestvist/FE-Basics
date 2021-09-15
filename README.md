@@ -38,6 +38,7 @@
   - [双向绑定](#双向绑定)
       - [Object.defineProperty](#objectdefineproperty)
       - [Proxy](#proxy)
+  - [Diff](#diff)
   - [算法](#算法)
       - [冒泡排序](#冒泡排序)
       - [选择排序](#选择排序)
@@ -690,6 +691,10 @@ function throttle(fn, wait) {
     </body>
 </html>
 ```
+
+## Diff
+
+![diff](/images/diff.jpg)
 
 ## 算法
 
